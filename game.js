@@ -68,7 +68,7 @@ choices.forEach(choice =>{
         if(!acceptingAnswers) return
 
         acceptingAnswers = falseconst selectedChoice = e.target
-        const selectedAnser - selectedChoice.dataset ['number']
+        const selectedAnswer - selectedChoice.dataset ['number']
 
         let classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect'
 
