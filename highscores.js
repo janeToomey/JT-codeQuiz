@@ -1,7 +1,9 @@
-const highScoresList = document.querySelector('#highScoresList')
-const highScores = JSON.pares9localStorage.getItem('highScore')||[]
+//declare variables
 
+const highScoresList = document.querySelector('#highScoresList')
+const highScores = JSON.parse(localStorage.getItem('highScore'))||[]
+//logs the high scores of the players
 highScoresList.innerHTML =
-highScore.map(score =>{
-    return `<li class = "high-score>${score.name} - ${score.score}</li>`
+highScores.map(score =>{
+    return `<li class = "high-score">${score.name} - ${score.score}</li>`
 }).join('')

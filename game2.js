@@ -4,6 +4,7 @@ const choices = Array.from(document.querySelectorAll('.choice-text'))
 const progressText = document.querySelector('#progressText')
 const scoreText = document.querySelector('#score')
 const progressBarFull = document.querySelector('#progressBarFull')
+const timer = document.getElementById("timer")
 //create input variables
 let currentQuestion = {}
 let acceptingAnswers = true
@@ -81,12 +82,12 @@ getNewQuestion = () =>{
     //logs scores in local storage
     if(availableQuestions.length===0 || questionCounter > MAX_QUESTION ){
         localStorage.setItem('mostRecentScore', score)
-        return window.location.assignment('/end.html')
+        return window.location.assign('end2.html')
     };
     //adds 1 to the question counter when function is run
     questionCounter++;
     //labels what question number on out of total questions
-    progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTION}}`
+    progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTION}`
     //changes how full the progress bar is depending on the question user is on
     progressBarFull.style.width =`${(questionCounter/MAX_QUESTION) * 100}%`
     //calculate value of question index
@@ -108,6 +109,9 @@ getNewQuestion = () =>{
     acceptingAnswers = true
 
 }
+
+
+
 
 choices.forEach(choice=>{
     choice.addEventListener('click', e =>{
