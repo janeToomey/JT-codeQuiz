@@ -53,9 +53,6 @@ body {
   font-size: 2rem;
   color: black;
 }
-.hud-item {
-  padding-left: 200px;
-}
 
 .hud-main-text {
   text-align: center;
@@ -70,6 +67,7 @@ body {
   border: 0.2rem solid rgb(2, 204, 2);
   margin-top: 7rem;
   border-radius: 50px;
+
   overflow: hidden;
 }
 #progressBarFull {

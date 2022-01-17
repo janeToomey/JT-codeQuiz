@@ -5,6 +5,8 @@ const progressText = document.querySelector('#progressText')
 const scoreText = document.querySelector('#score')
 const progressBarFull = document.querySelector('#progressBarFull')
 const timer = document.getElementById("timer")
+var sec = 15
+var time = setInterval(timer, 1000)
 //create input variables
 let currentQuestion = {}
 let acceptingAnswers = true
@@ -67,6 +69,7 @@ let questions = [
 //variables for the # of points and questions
 const SCORE_POINT = 100
 const MAX_QUESTION = 6
+
 
 //function to start the game
 startGame = () =>{
