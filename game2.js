@@ -4,14 +4,15 @@ const choices = Array.from(document.querySelectorAll('.choice-text'))
 const progressText = document.querySelector('#progressText')
 const scoreText = document.querySelector('#score')
 const progressBarFull = document.querySelector('#progressBarFull')
-const timer = document.getElementById("timer")
-var sec = 15
-var time = setInterval(timer, 1000)
+var timer = document.getElementById("timer")
+
 //create input variables
 let currentQuestion = {}
 let acceptingAnswers = true
 let score = 0
 let questionCounter = 0
+var timeLeft = 100
+var timeInterval
 
 //create an array to store questions-answers
 
@@ -75,8 +76,24 @@ const MAX_QUESTION = 6
 startGame = () =>{
     questionCounter= 0;
     score = 0;
+    timeLeft = 100;
+    countDown()
     availableQuestions = [...questions];
     getNewQuestion()
+}
+//function that countsdown from 100
+function countDown(){
+    timeInterval = setInterval (function (){
+        timeLeft --;
+      timer.textContent = timeLeft;
+
+        if(timeLeft <= 0){
+            clearInterval(timeInterval);
+            timer.textContent = "00"
+            timesup()
+        }
+
+    }, 1000);
 }
 
 //function to change the question
@@ -129,6 +146,9 @@ choices.forEach(choice=>{
        //increases score by 100 if get answer correct
        if(classToApply === 'correct'){
            incrementScore(SCORE_POINT)
+           
+       } else {
+        timeLeft = timeLeft - 5
        }
        //adds correct answer
        selectedChoice.parentElement.classList.add(classToApply);
