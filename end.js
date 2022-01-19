@@ -32,7 +32,7 @@ saveHighScore = e =>{
     //cuts off high scores after 5 top scores reached
     highScores.splice(5)
      localStorage.setItem('highScores', JSON.stringify(highScores));
-   window.location.assign('index2.html');
+   window.location.assign('index.html');
     
     
 
